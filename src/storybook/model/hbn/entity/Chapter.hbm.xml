@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "classpath://org/hibernate/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="storybook.model.hbn.entity">
+  <class name="Chapter" table="CHAPTER">
+    <id column="ID" name="id" type="java.lang.Long" unsaved-value="null">
+      <generator class="increment">
+        <!--
+                  To add non XDoclet generator parameters, create a file named
+                  hibernate-generator-params-Chapter.xml
+                  containing the additional parameters and place it in your merge dir.
+              -->
+      </generator>
+    </id>
+    <many-to-one cascade="none" class="storybook.model.hbn.entity.Part" column="part_id" insert="true" lazy="false" name="part" outer-join="auto" update="true"/>
+    <property column="chapterno" insert="true" name="chapterno" type="java.lang.Integer" update="true"/>
+    <property column="title" insert="true" length="256" name="title" type="java.lang.String" update="true"/>
+    <property column="description" insert="true" length="32768" name="description" type="java.lang.String" update="true"/>
+    <property column="notes" insert="true" length="32768" name="notes" type="java.lang.String" update="true"/>
+    <property column="creation_ts" insert="true" name="creationTime" type="java.sql.Timestamp" update="true"/>
+    <property column="objective_ts" insert="true" name="objectiveTime" type="java.sql.Timestamp" update="true"/>
+    <property column="done_ts" insert="true" name="doneTime" type="java.sql.Timestamp" update="true"/>
+    <property column="objective_ch" insert="true" name="objectiveChars" type="java.lang.Integer" update="true"/>
+    
+
+  </class>
+</hibernate-mapping>

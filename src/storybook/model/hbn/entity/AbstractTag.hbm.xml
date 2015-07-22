@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "classpath://org/hibernate/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="storybook.model.hbn.entity">
+  <class discriminator-value="-1" name="AbstractTag" table="TAG">
+    <id column="ID" name="id" type="java.lang.Long" unsaved-value="null">
+      <generator class="increment">
+        <!--
+                  To add non XDoclet generator parameters, create a file named
+                  hibernate-generator-params-AbstractTag.xml
+                  containing the additional parameters and place it in your merge dir.
+              -->
+      </generator>
+    </id>
+    <discriminator column="type" type="integer"/>
+    <property column="type" insert="false" name="type" type="java.lang.Integer" update="false"/>
+    <property column="category" insert="true" name="category" type="java.lang.String" update="true"/>
+    <property column="name" insert="true" name="name" type="java.lang.String" update="true"/>
+    <property column="description" insert="true" name="description" type="java.lang.String" update="true"/>
+    <property column="notes" insert="true" name="notes" type="java.lang.String" update="true"/>
+    <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-AbstractTag.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+    <subclass discriminator-value="0" name="Tag">
+      <!--
+            	To add non XDoclet property mappings, create a file named
+                hibernate-properties-Tag.xml
+		containing the additional properties and place it in your merge dir.
+	    -->
+    </subclass>
+    <subclass discriminator-value="1" name="Item">
+      <!--
+            	To add non XDoclet property mappings, create a file named
+                hibernate-properties-Item.xml
+		containing the additional properties and place it in your merge dir.
+	    -->
+    </subclass>
+  </class>
+</hibernate-mapping>

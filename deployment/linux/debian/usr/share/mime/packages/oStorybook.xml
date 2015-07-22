@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+    <mime-type type="application/vnd.oStorybook">
+		<comment>oStorybook file</comment>
+		<glob pattern="*.h2.db" />
+		<magic priority="25">
+			<match type="string" value="&lt;project" offset="0" />
+		</magic>
+		<generic-icon name="application-xml" />
+		<sub-class-of type="application/xml" />
+    </mime-type>
+</mime-info>

@@ -1,0 +1,47 @@
+Annonce
+Texte:
+Toulouse, le 16/11/2014
+
+Bonjour,
+
+J'ai le plaisir de vous annoncer la prochaine publication de la version 4.9.16.
+Cette nouvelle version, outre la correction d'anomalies, introduit
+quelques évolutions notables.
+
+Sauf incident particulier cette nouvelle version
+sera disponible le 1er décembre 2014.
+
+A noter la réintroduction de quelques fichiers d'internationalisation. Ils sont
+imparfait et incomplet (en particulier pour ce qui est des nouvelles fonctions).
+En effet, malgré l'appel aux traducteurs je n'ai reçu aucune contribution. J'ai
+décidé "d'ouvrir" le sous-forum dédié à la traduction mais ça n'a pas eu
+l'effet escompté. Si je reçois des traductions effectuées sur cette version
+4.9.16 elle seront intégrées très rapidement et feront l'objet d'une nouvelle
+version 4.9.17 qui pourrait être publiée dès le 16 décembre 2014.
+
+Liste des évolutions et corrections:
+- mise à jour du panneau d'information sur simple clique de sélection dans l'un
+des tableaux
+- réintégration de la vue des Attributs au même rang que les autres
+- correction du bug concernant la réplication de scène en cas d'ajout dynamique
+personnage, lieu ou fil
+- modification de l'icone, du splash-screen, de l'image d'arrière plan
+- ajustement de l'I18N pour les menus (mnémoniques), très incomplet
+- redéveloppement du packaging Debian
+- ajout du packaging RPM
+- internationalisation du "à propos..."
+- ajout des statistiques sur la barre d'état
+- bug : la vue des idées était inactive
+- modification du log4j pour remonter au niveau ERROR
+
+Avec mes amitiés, en espérant que ces quelques corrections vous soient utiles.
+
+*Aux traducteurs, merci de bien vouloir traduire ce message.*
+
+Diffusion :
+- mailing-list News
+- forum : Discussion générale
+
+Annonce de publication
+Ajout évolution:
+- lieux triés par pays puis ville puis nom (dans l'arbre, Memoria, etc...)

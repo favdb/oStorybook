@@ -1,0 +1,732 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE action-set SYSTEM "action-set.dtd">
+
+<!--
+  The actions define all the Actions in an application
+  and toolbars and menus which use the actions
+-->
+
+<action-set id="action">
+
+  <!-- menus -->
+  <action id="file-menu-command"
+          name="<i18n>msg.menu.file</i18n>"
+          mnemonic="F"/>
+  <action id="recent-menu-command"
+          name="<i18n>msg.file.open.recent</i18n>"/>
+  <action id="edit-menu-command"
+          name="<i18n>msg.menu.edit</i18n>"
+          mnemonic="E"/>
+  <action id="view-menu-command"
+          name="<i18n>msg.menu.view</i18n>"
+          mnemonic="V"/>
+  <action id="main-entities-menu-command"
+          name="<i18n>msg.common.primary.objects</i18n>"
+          mnemonic="P"/>
+  <action id="secondary-entities-menu-command"
+          name="<i18n>msg.common.secondary.objects</i18n>"
+          mnemonic="S"/>
+  <action id="new-entity-menu-command"
+          name="<i18n>msg.common.new.object</i18n>"
+          mnemonic="N"/>
+  <action id="parts-menu-command"
+          name="<i18n>msg.menu.parts</i18n>"
+          mnemonic="P"/>
+  <action id="charts-menu-command"
+          name="<i18n>msg.menu.charts</i18n>"
+          mnemonic="C"/>
+  <action id="tools-menu-command"
+          name="<i18n>msg.menu.tools</i18n>"
+          mnemonic="T"/>
+  <action id="window-menu-command"
+          name="<i18n>msg.common.window</i18n>"
+          mnemonic="W"/>
+  <action id="load-layout-menu-command"
+          name="<i18n>msg.docking.load.layout</i18n>"/>
+  <action id="dev-menu-command"
+          name="Development"
+          desc="dev"/>
+
+  <!-- file menu -->
+  <action id="new-command"
+          name="<i18ndot>msg.file.new</i18ndot>"
+          mnemonic="N"
+          smicon="/storybook/resources/icons/16x16/file-new.png"
+          icon="/storybook/resources/icons/16x16/file-new.png"
+		  accel="control N"/>
+  <action id="open-command"
+          name="<i18ndot>msg.file.open</i18ndot>"
+          mnemonic="O"
+          smicon="/storybook/resources/icons/16x16/file-open.png"
+          icon="/storybook/resources/icons/16x16/file-open.png"
+	      accel="control O"/>
+  <action id="save-command"
+          name="<i18n>msg.file.save</i18n>"
+          mnemonic="S"
+          smicon="/storybook/resources/icons/16x16/file-save.png"
+          icon="/storybook/resources/icons/16x16/file-save.png"
+	      accel="control S"/>
+  <action id="save-as-command"
+          name="<i18n>msg.file.save.as</i18n>"
+          mnemonic="A"
+          smicon="/storybook/resources/icons/16x16/file-save-as.png"
+          icon="/storybook/resources/icons/16x16/file-save-as.png"/>
+  <action id="rename-command"
+          name="<i18ndot>msg.common.rename</i18ndot>"
+          mnemonic="R"
+          smicon="/storybook/resources/icons/16x16/rename.png"
+          icon="/storybook/resources/icons/16x16/rename.png"/>
+  <action id="close-command"
+          name="<i18ndot>msg.file.close</i18ndot>"
+          mnemonic="C"
+          smicon="/storybook/resources/icons/16x16/close.png"
+          icon="/storybook/resources/icons/16x16/close.png"
+	      accel="control W"/>
+  <action id="exit-command"
+          name="<i18n>msg.common.exit</i18n>"
+          mnemonic="X"/>
+  <action id="export-book-text-command"
+          name="<i18ndot>msg.export.book.text</i18ndot>"
+          mnemonic="X"
+	      smicon="/storybook/resources/icons/16x16/export.png"
+          icon="/storybook/resources/icons/16x16/export.png"
+          accel="control shift P"/>
+  <action id="export-print-command"
+          name="<i18ndot>msg.menu.file.export_print</i18ndot>"
+          mnemonic="P"
+	      smicon="/storybook/resources/icons/16x16/print.png"
+          icon="/storybook/resources/icons/16x16/print.png"
+          accel="control P"/>
+  <action id="open-export-folder-command"
+          name="<i18ndot>msg.dlg.export.folder</i18ndot>"
+          mnemonic="F"
+          accel="control shift F"/>
+  <action id="document-preferences-command"
+          name="<i18ndot>msg.document.preference.title</i18ndot>"
+          mnemonic="D"/>
+  <action id="recent-clear-command"
+          name="<i18n>msg.file.clear.recent</i18n>"/>
+
+  <!-- edit menu -->
+  <action id="copy-book-text-command"
+          name="<i18n>msg.book.copy</i18n>"
+          mnemonic="C"
+	      smicon="/storybook/resources/icons/16x16/edit-copy.png"
+          icon="/storybook/resources/icons/16x16/edit-copy.png"/>
+	<action id="copy-blurb-command"
+          name="<i18n>msg.blurb.copy</i18n>"
+          mnemonic="C"
+	      smicon="/storybook/resources/icons/16x16/edit-copy.png"
+          icon="/storybook/resources/icons/16x16/edit-copy.png"/>
+    <action id="copy-command"
+          name="Copy"
+          mnemonic="C"
+          smicon="/toolbarButtonGraphics/general/Copy16.gif"
+          icon="/toolbarButtonGraphics/general/Copy24.gif"
+	      accel="control C"
+          desc="Creates a duplicate of the selected item"/>
+  	<action id="cut-command"
+          name="Cut"
+          mnemonic="T"
+          smicon="/toolbarButtonGraphics/general/Cut16.gif"
+          icon="/toolbarButtonGraphics/general/Cut24.gif"
+	      accel="control X"
+          desc="Remove selected item"/>
+  	<action id="paste-command"
+          name="Paste"
+          mnemonic="P"
+          smicon="/toolbarButtonGraphics/general/Paste16.gif"
+          icon="/toolbarButtonGraphics/general/Paste24.gif"
+	      accel="control V"
+          desc="Inserts an object from the clipboard"/>
+
+	<!-- view menu -->
+	<action id="view-chrono-command"
+          name="<i18n>msg.menu.view.chrono</i18n>"
+          smicon="/storybook/resources/icons/16x16/chrono_view.png"
+          icon="/storybook/resources/icons/16x16/chrono_view.png"
+          accel="control 1" />
+	<action id="view-book-command"
+          name="<i18n>msg.menu.view.book</i18n>"
+          smicon="/storybook/resources/icons/16x16/book_view.png"
+          icon="/storybook/resources/icons/16x16/book_view.png"
+          accel="control 3" />
+	<action id="view-reading-command"
+          name="<i18n>msg.menu.view.reading</i18n>"
+          smicon="/storybook/resources/icons/16x16/reading.png"
+          icon="/storybook/resources/icons/16x16/reading.png"
+          accel="control 4" />
+	<action id="view-manage-command"
+          name="<i18n>msg.menu.view.manage</i18n>"
+          smicon="/storybook/resources/icons/16x16/manage_view.png"
+          icon="/storybook/resources/icons/16x16/manage_view.png"
+          accel="control 2" />
+	<action id="view-memoria-command"
+          name="<i18n>msg.menu.view.pov</i18n>"
+          smicon="/storybook/resources/icons/16x16/memoria.png"
+          icon="/storybook/resources/icons/16x16/memoria.png"
+          accel="control 5"/>
+	<action id="view-editor-command"
+          name="<i18n>msg.common.editor</i18n>"
+          smicon="/storybook/resources/icons/16x16/edit.png"
+          icon="/storybook/resources/icons/16x16/edit.png"
+          accel="control 6"/>
+	<action id="view-tree-command"
+          name="<i18n>msg.common.tree</i18n>"
+		  smicon="/storybook/resources/icons/16x16/tree.png"
+          icon="/storybook/resources/icons/16x16/tree.png"
+          accel="control 7"/>
+	<action id="view-info-command"
+          name="<i18n>msg.info.title</i18n>"
+		  smicon="/storybook/resources/icons/16x16/info.png"
+          icon="/storybook/resources/icons/16x16/info.png"
+          accel="control 8"/>
+	<action id="view-navigation-command"
+          name="<i18n>msg.common.navigation</i18n>"
+   		  smicon="/storybook/resources/icons/16x16/compass.png"
+          icon="/storybook/resources/icons/16x16/compass.png"
+          accel="control 9"/>
+
+  	<!-- primary entities menu -->
+	<action id="entity-scenes-command"
+          name="<i18n>msg.common.scenes</i18n>"
+          smicon="/storybook/resources/icons/16x32/manage_scenes.png"
+          icon="/storybook/resources/icons/16x32/manage_scenes.png"
+          accel="control alt S"/>
+	<action id="entity-chapters-command"
+          name="<i18n>msg.common.chapters</i18n>"
+	      smicon="/storybook/resources/icons/16x32/manage_chapters.png"
+          icon="/storybook/resources/icons/16x32/manage_chapters.png"
+          accel="control alt H"/>
+	<action id="entity-parts-command"
+          name="<i18n>msg.common.parts</i18n>"
+	      smicon="/storybook/resources/icons/16x32/manage_parts.png"
+          icon="/storybook/resources/icons/16x32/manage_parts.png"/>
+	<action id="entity-strands-command"
+          name="<i18n>msg.common.strands</i18n>"
+   	      smicon="/storybook/resources/icons/16x32/manage_strands.png"
+          icon="/storybook/resources/icons/16x32/manage_strands.png"/>
+	<action id="entity-persons-command"
+          name="<i18n>msg.common.persons</i18n>"
+	      smicon="/storybook/resources/icons/16x32/manage_persons.png"
+          icon="/storybook/resources/icons/16x32/manage_persons.png"
+          accel="control alt C"/>
+	<action id="entity-persons-links-command"
+          name="<i18n>msg.persons.links</i18n>"
+	      smicon="/storybook/resources/icons/16x32/manage_person_links.png"
+          icon="/storybook/resources/icons/16x32/manage_person_links.png"/>
+	<action id="entity-genders-command"
+          name="<i18n>msg.common.genders</i18n>"
+	      smicon="/storybook/resources/icons/16x32/manage_genders.png"
+          icon="/storybook/resources/icons/16x32/manage_genders.png"/>
+	<action id="entity-categories-command"
+          name="<i18n>msg.persons.categories</i18n>"
+          smicon="/storybook/resources/icons/16x32/manage_categories.png"
+          icon="/storybook/resources/icons/16x32/manage_categories.png"/>
+	<action id="entity-locations-command"
+          name="<i18n>msg.common.locations</i18n>"
+	      smicon="/storybook/resources/icons/16x32/manage_locations.png"
+          icon="/storybook/resources/icons/16x32/manage_locations.png"
+          accel="control alt L"/>
+	<action id="rename-city-command"
+          name="<i18n>msg.location.rename.city</i18n>"
+          smicon="/storybook/resources/icons/16x16/rename.png"
+          icon="/storybook/resources/icons/16x16/rename.png"/>
+	<action id="rename-country-command"
+          name="<i18n>msg.location.rename.country</i18n>"
+          smicon="/storybook/resources/icons/16x16/rename.png"
+          icon="/storybook/resources/icons/16x16/rename.png"/>
+
+	<!-- secondary entities menu -->
+	<action id="entity-tags-command"
+          name="<i18n>msg.tags</i18n>"
+          smicon="/storybook/resources/icons/16x32/manage_tags.png"
+          icon="/storybook/resources/icons/16x32/manage_tags.png"
+          accel="control alt T"/>
+	<action id="entity-taglinks-command"
+          name="<i18n>msg.tags.links</i18n>"
+          smicon="/storybook/resources/icons/16x32/manage_tag_links.png"
+          icon="/storybook/resources/icons/16x32/manage_tag_links.png"
+          accel="control alt Z"/>
+	<action id="rename-tag-category-command"
+          name="<i18n>msg.tag.rename.category</i18n>"
+          smicon="/storybook/resources/icons/16x16/rename.png"
+          icon="/storybook/resources/icons/16x16/rename.png"/>
+	<action id="entity-items-command"
+          name="<i18n>msg.items</i18n>"
+          smicon="/storybook/resources/icons/16x32/manage_items.png"
+          icon="/storybook/resources/icons/16x32/manage_items.png"
+          accel="control alt I"/>
+	<action id="entity-itemlinks-command"
+          name="<i18n>msg.items.links</i18n>"
+          smicon="/storybook/resources/icons/16x32/manage_item_links.png"
+          icon="/storybook/resources/icons/16x32/manage_item_links.png"
+          accel="control alt O"/>
+	<action id="rename-item-category-command"
+          name="<i18n>msg.item.rename.category</i18n>"
+          smicon="/storybook/resources/icons/16x16/rename.png"
+          icon="/storybook/resources/icons/16x16/rename.png"/>
+	<action id="entity-ideas-command"
+          name="<i18n>msg.ideas.title</i18n>"
+          smicon="/storybook/resources/icons/16x32/manage_ideas.png"
+          icon="/storybook/resources/icons/16x32/manage_ideas.png"
+          accel="control alt F"/>
+	<action id="entity-internals-command"
+          name="Internals"
+          desc="Manage internals"/>
+
+	<!-- new entity menu -->
+	<action id="new-scene-command"
+          name="<i18n>msg.common.scene</i18n>"
+          smicon="/storybook/resources/icons/16x16/scene.png"
+          icon="/storybook/resources/icons/16x16/scene.png"
+          accel="control shift S"/>
+	<action id="new-chapter-command"
+          name="<i18n>msg.common.chapter</i18n>"
+          smicon="/storybook/resources/icons/16x16/chapter.png"
+          icon="/storybook/resources/icons/16x16/chapter.png"
+          accel="control shift H"/>
+	<action id="create-chapters-command"
+          name="<i18n>msg.generate.chapters</i18n>"/>
+	<action id="new-part-command"
+          name="<i18n>msg.common.part</i18n>"
+          smicon="/storybook/resources/icons/16x16/part.png"
+          icon="/storybook/resources/icons/16x16/part.png"/>
+	<action id="new-strand-command"
+          name="<i18n>msg.common.strand</i18n>"
+          smicon="/storybook/resources/icons/16x16/strand.png"
+          icon="/storybook/resources/icons/16x16/strand.png"/>
+	<action id="new-person-command"
+          name="<i18n>msg.common.person</i18n>"
+          smicon="/storybook/resources/icons/16x16/person.png"
+          icon="/storybook/resources/icons/16x16/person.png"
+          accel="control shift C"/>
+	<action id="new-person-link-command"
+          name="<i18n>msg.persons.links</i18n>"
+          smicon="/storybook/resources/icons/16x16/link.png"
+          icon="/storybook/resources/icons/16x16/link.png"/>
+	<action id="new-category-command"
+          name="<i18n>msg.persons.category</i18n>"
+          smicon="/storybook/resources/icons/16x16/category.png"
+          icon="/storybook/resources/icons/16x16/category.png"/>
+	<action id="new-gender-command"
+          name="<i18n>msg.dlg.mng.persons.gender</i18n>"
+          smicon="/storybook/resources/icons/16x16/gender.png"
+          icon="/storybook/resources/icons/16x16/gender.png"/>
+	<action id="new-location-command"
+          name="<i18n>msg.common.location</i18n>"
+          smicon="/storybook/resources/icons/16x16/location.png"
+          icon="/storybook/resources/icons/16x16/location.png"
+          accel="control shift L"/>
+	<action id="new-tag-command"
+          name="<i18n>msg.tag</i18n>"
+          smicon="/storybook/resources/icons/16x16/tag.png"
+          icon="/storybook/resources/icons/16x16/tag.png"
+          accel="control shift T"/>
+	<action id="new-taglink-command"
+          name="<i18n>msg.tag.link</i18n>"
+          smicon="/storybook/resources/icons/16x16/link.png"
+          icon="/storybook/resources/icons/16x16/link.png"
+          accel="control shift Z"/>
+	<action id="new-item-command"
+          name="<i18n>msg.item</i18n>"
+          smicon="/storybook/resources/icons/16x16/item.png"
+          icon="/storybook/resources/icons/16x16/item.png"
+          accel="control shift I"/>
+	<action id="new-itemlink-command"
+          name="<i18n>msg.item.link</i18n>"
+          smicon="/storybook/resources/icons/16x16/link.png"
+          icon="/storybook/resources/icons/16x16/link.png"
+          accel="control shift O"/>
+	<action id="flashofinspiration-command"
+          name="<i18n>msg.foi.title</i18n>"
+	      smicon="/storybook/resources/icons/16x16/bulb.png"
+          icon="/storybook/resources/icons/16x16/bulb.png"
+          accel="control F"/>
+	<action id="new-idea-command"
+          name="<i18n>msg.idea.table.idea</i18n>"
+          smicon="/storybook/resources/icons/16x16/bulb.png"
+          icon="/storybook/resources/icons/16x16/bulb.png"
+          accel="control shift F"/>
+
+	<!-- part menu commands (some commands are created dynamically) -->
+	<action id="part-previous-command"
+          name="<i18n>msg.common.part.previous</i18n>"
+	      smicon="/storybook/resources/icons/16x16/arrowleft.png"
+          icon="/storybook/resources/icons/16x16/arrowleft.png"/>
+	<action id="part-next-command"
+          name="<i18n>msg.common.part.next</i18n>"
+   	      smicon="/storybook/resources/icons/16x16/arrowright.png"
+          icon="/storybook/resources/icons/16x16/arrowright.png"/>
+
+	<!-- charts menu -->
+	<action id="chart-persons-by-date-command"
+          name="<i18n>msg.menu.tools.charts.overall.character.date</i18n>"
+	      smicon="/storybook/resources/icons/16x16/chart.png"
+          icon="/storybook/resources/icons/16x16/chart.png"/>
+	<action id="chart-persons-by-scene-command"
+          name="<i18n>msg.menu.tools.charts.part.character.scene</i18n>"
+	      smicon="/storybook/resources/icons/16x16/chart.png"
+          icon="/storybook/resources/icons/16x16/chart.png"/>
+	<action id="chart-wiww-command"
+          name="<i18n>msg.menu.tools.charts.overall.whoIsWhereWhen</i18n>"
+	      smicon="/storybook/resources/icons/16x16/chart.png"
+          icon="/storybook/resources/icons/16x16/chart.png"/>
+	<action id="chart-strands-by-date-command"
+          name="<i18n>msg.menu.tools.charts.overall.strand.date</i18n>"
+   	      smicon="/storybook/resources/icons/16x16/chart.png"
+          icon="/storybook/resources/icons/16x16/chart.png"/>
+	<action id="chart-occurrence-of-persons-command"
+          name="<i18n>msg.menu.tools.charts.overall.character.occurrence</i18n>"
+	      smicon="/storybook/resources/icons/16x16/chart.png"
+          icon="/storybook/resources/icons/16x16/chart.png"/>
+	<action id="chart-occurrence-of-locations-command"
+          name="<i18n>msg.menu.tools.charts.overall.location.occurrence</i18n>"
+	      smicon="/storybook/resources/icons/16x16/chart.png"
+          icon="/storybook/resources/icons/16x16/chart.png"/>
+	<action id="chart-gantt-command"
+          name="<i18n>msg.chart.gantt.characters.title</i18n>"
+	      smicon="/storybook/resources/icons/16x16/chart.png"
+          icon="/storybook/resources/icons/16x16/chart.png"/>
+
+	<!-- tools menu -->
+	<action id="langtool-command"
+          name="<i18n>msg.langtool.title</i18n>"
+          smicon="/storybook/resources/icons/16x16/langtool.png"
+          icon="/storybook/resources/icons/16x16/langtool.png"/>
+	<action id="tasklist-command"
+          name="<i18n>msg.tasklist.title</i18n>"
+	      smicon="/storybook/resources/icons/16x16/tasklist.png"
+          icon="/storybook/resources/icons/16x16/tasklist.png"
+          accel="control K"/>
+	<action id="text2html-command"
+          name="<i18n>msg.text.to.html</i18n>"/>
+	<action id="html2text-command"
+          name="<i18n>msg.html.to.text</i18n>"/>
+
+	<!-- window menu -->
+	<action id="save-layout-command"
+          name="<i18n>msg.docking.save.layout</i18n>"/>
+	<action id="default-layout-command"
+          name="<i18n>msg.layout.default</i18n>"/>
+	<action id="persons-locations-layout-command"
+          name="<i18n>msg.layout.persons.locations</i18n>"/>
+	<action id="tags-items-layout-command"
+          name="<i18n>msg.layout.tags.items</i18n>"/>
+	<action id="chrono-only-layout-command"
+          name="<i18n>msg.layout.chrono.only</i18n>"/>
+	<action id="book-only-layout-command"
+          name="<i18n>msg.layout.book.only</i18n>"/>
+	<action id="manage-only-layout-command"
+          name="<i18n>msg.layout.manage.only</i18n>"/>
+	<action id="reading-only-layout-command"
+          name="<i18n>msg.layout.reading.only</i18n>"/>
+	<action id="reset-layout-command"
+          name="<i18n>msg.docking.reset.layout</i18n>"/>
+	<action id="manage-layouts-command"
+          name="<i18n>msg.docking.manage.layouts</i18n>"/>
+	<action id="refresh-command"
+          name="<i18n>msg.common.refresh</i18n>"
+          mnemonic="R"
+          accel="F5"/>
+	<action id="preferences-command"
+          name="<i18ndot>msg.dlg.preference.title</i18ndot>"
+          mnemonic="P"/>
+
+ 	<!-- development menu -->
+	<action id="run-gc-command"
+          name="Run GC"
+          desc="run GC"/>
+	<action id="dump-attached-views-command"
+          name="Dump attached views"
+          desc="Dump attached views"/>
+	<action id="dummy-command"
+          name="Dummy"
+          desc="dummy"/>
+
+  	<!-- help menu -->
+  	<action id="go-pro-command"
+          name="<i18ndot>msg.common.go.pro</i18ndot>"
+          mnemonic="P"/>
+  	<action id="report-bug-command"
+          name="Report a bug..."
+          mnemonic="B"/>
+   	<action id="doc-command"
+          name="<i18n>msg.menu.help.doc</i18n>"
+          mnemonic="D"
+          accel="F1"/>
+   	<action id="faq-command"
+          name="<i18n>msg.menu.help.faq</i18n>"
+          mnemonic="F"/>
+	<action id="homepage-command"
+          name="<i18n>msg.menu.help.homepage</i18n>"
+          mnemonic="H" />
+	<action id="facebook-command"
+          name="<i18n>msg.menu.help.facebook</i18n>"
+          mnemonic="F" />
+  	<action id="about-command"
+          name="<i18n>msg.menu.help.about</i18n>"
+          mnemonic="A" />
+  	<action id="trace-command"
+          name="<i18n>msg.menu.help.trace</i18n>"
+          mnemonic="T" />
+  	<action id="check-update-command"
+          name="<i18ndot>msg.menu.help.update</i18ndot>" />
+
+  <!-- Text commands - most of which are toggle actions -->
+  <action id="align-right-command"
+	      type="toggle"
+          name="Right Align"
+          mnemonic="R"
+          smicon="/toolbarButtonGraphics/text/AlignRight16.gif"
+          icon="/toolbarButtonGraphics/text/AlignRight24.gif"
+          desc="Adjust the placement of the text along the right side"/>
+  <action id="align-left-command"
+	      type="toggle"
+          name="Left Align"
+          mnemonic="L"
+          smicon="/toolbarButtonGraphics/text/AlignLeft24.gif"
+          icon="/toolbarButtonGraphics/text/AlignLeft24.gif"
+          desc="Adjust the placement of the text along the left side"/>
+  <action id="align-center-command"
+	      type="toggle"
+          name="Center"
+          mnemonic="N"
+          smicon="/toolbarButtonGraphics/text/AlignCenter16.gif"
+          icon="/toolbarButtonGraphics/text/AlignCenter24.gif"
+          desc="Adjust the placement of the text to the center"/>
+
+  <!-- Toggle Action which will be implemented as a JToggleButton or
+       a JCheckBoxMenuItem -->
+  <action id="history-command"
+	  type="toggle"
+	  name="History"
+	  mnemonic="T"
+	  smicon="/toolbarButtonGraphics/general/History16.gif"
+	  icon="/toolbarButtonGraphics/general/History24.gif"
+	  desc="Display a list of previously visited locations"/>
+
+    <!-- main menu -->
+	<action-list id="main-menu">
+		<action-list id="file-menu" idref="file-menu-command">
+			<action idref="new-command" />
+			<action idref="open-command" />
+			<action-list id="recent-menu" idref="recent-menu-command">
+				<action idref="recent-clear-command" />
+			</action-list>
+			<action idref="save-command" />
+			<action idref="save-as-command" />
+			<action idref="rename-command" />
+			<action idref="close-command" />
+			<empty />
+			<action idref="document-preferences-command" />
+			<empty />
+			<action idref="export-book-text-command" />
+			<action idref="export-print-command" />
+			<action idref="open-export-folder-command" />
+			<empty />
+			<action idref="exit-command" />
+		</action-list>
+		<action-list id="edit-menu" idref="edit-menu-command">
+			<action idref="copy-book-text-command" />
+			<action idref="copy-blurb-command" />
+		</action-list>
+		<action-list id="new-entity-menu" idref="new-entity-menu-command">
+			<action idref="new-scene-command" />
+			<action idref="new-chapter-command" />
+			<action idref="create-chapters-command" />
+			<action idref="new-part-command" />
+			<action idref="new-strand-command" />
+			<empty />
+			<action idref="new-person-command" />
+			<action idref="new-person-link-command" />
+			<action idref="new-category-command" />
+			<action idref="new-gender-command" />
+			<empty />
+			<action idref="new-location-command" />
+			<empty />
+			<action idref="new-tag-command" />
+			<action idref="new-taglink-command" />
+			<empty />
+			<action idref="new-item-command" />
+			<action idref="new-itemlink-command" />
+			<empty />
+			<action idref="flashofinspiration-command" />
+			<action idref="new-idea-command" />
+		</action-list>
+		<action-list id="main-entities-menu" idref="main-entities-menu-command">
+			<action idref="entity-scenes-command" />
+			<action idref="entity-chapters-command" />
+			<action idref="entity-parts-command" />
+			<action idref="entity-strands-command" />
+			<empty />
+			<action idref="entity-persons-command" />
+			<action idref="entity-persons-links-command" />
+			<action idref="entity-categories-command" />
+			<action idref="entity-genders-command" />
+			<empty />
+			<action idref="entity-locations-command" />
+			<action idref="rename-city-command" />
+			<action idref="rename-country-command" />
+		</action-list>
+		<action-list id="secondary-entities-menu" idref="secondary-entities-menu-command">
+			<action idref="entity-tags-command" />
+			<action idref="entity-taglinks-command" />
+			<action idref="rename-tag-category-command" />
+			<empty />
+			<action idref="entity-items-command" />
+			<action idref="entity-itemlinks-command" />
+			<action idref="rename-item-category-command" />
+			<empty />
+			<action idref="entity-ideas-command" />
+			<!--
+			<empty />
+			<action idref="entity-internals-command" />
+			-->
+		</action-list>
+		<action-list id="view-menu" idref="view-menu-command">
+			<action idref="view-chrono-command" />
+			<action idref="view-book-command" />
+			<action idref="view-manage-command" />
+			<action idref="view-reading-command" />
+			<action idref="view-memoria-command" />
+			<empty />
+			<action idref="view-editor-command" />
+			<action idref="view-tree-command" />
+			<action idref="view-info-command" />
+			<action idref="view-navigation-command" />
+		</action-list>
+		<action-list id="parts-menu" idref="parts-menu-command">
+			<action idref="part-previous-command" />
+			<action idref="part-next-command" />
+			<action idref="entity-parts-command" />
+		</action-list>
+		<action-list id="charts-menu" idref="charts-menu-command">
+			<action idref="chart-wiww-command" />
+			<action idref="chart-persons-by-date-command" />
+			<action idref="chart-persons-by-scene-command" />
+			<action idref="chart-strands-by-date-command" />
+			<empty />
+			<action idref="chart-gantt-command" />
+			<action idref="chart-occurrence-of-persons-command" />
+			<action idref="chart-occurrence-of-locations-command" />
+		</action-list>
+		<action-list id="tools-menu" idref="tools-menu-command">
+			<action idref="tasklist-command" />
+			<action idref="langtool-command" />
+			<empty />
+			<action idref="text2html-command" />
+			<action idref="html2text-command" />
+		</action-list>
+		<action-list id="window-menu" idref="window-menu-command">
+			<action-list id="load-layout-menu" idref="load-layout-menu-command">
+			</action-list>
+			<action idref="save-layout-command" />
+			<action idref="manage-layouts-command" />
+			<empty />
+			<action idref="default-layout-command" />
+			<action idref="persons-locations-layout-command" />
+			<action idref="tags-items-layout-command" />
+			<action idref="chrono-only-layout-command" />
+			<action idref="book-only-layout-command" />
+			<action idref="manage-only-layout-command" />
+			<action idref="reading-only-layout-command" />
+			<empty />
+			<action idref="reset-layout-command" />
+			<empty />
+			<action idref="refresh-command" />
+			<empty />
+			<action idref="preferences-command" />
+		</action-list>
+		<action-list id="help-menu" name="<i18n>msg.menu.help</i18n>" mnemonic="H"
+			desc="Help Operations">
+			<action idref="go-pro-command" />
+			<!-- <action idref="report-bug-command" /> -->
+			<empty />
+			<action idref="doc-command" />
+			<action idref="faq-command" />
+			<action idref="homepage-command" />
+			<action idref="facebook-command" />
+			<empty />
+			<action idref="check-update-command" />
+			<action idref="about-command" />
+                        <action idref="trace-command" />
+		</action-list>
+		<!--
+                <action-list id="dev-menu" idref="dev-menu-command">
+			<action idref="run-gc-command" />
+			<action idref="dump-attached-views-command" />
+			<action idref="dummy-command" />
+		</action-list>
+		 -->
+
+<!--
+			<group id="align">
+				<action idref="align-left-command" />
+				<action idref="align-center-command" />
+				<action idref="align-right-command" />
+			</group>
+					The following command demonstrates attribute overloading. The history
+				command now has the properties of a "Show Status Bar" command
+			<action idref="history-command" name="Show Status Bar"
+				mnemonic="B" desc="Shows or hides the status bar" />
+-->
+	</action-list>
+
+	<!-- main toolbar -->
+	<action-list id="main-toolbar">
+		<action idref="new-command" />
+		<action idref="open-command" />
+		<action idref="save-command" />
+		<empty />
+		<action idref="new-scene-command" />
+		<action idref="new-chapter-command" />
+		<action idref="new-person-command" />
+		<action idref="new-person-link-command" />
+		<action idref="new-location-command" />
+		<action idref="new-tag-command" />
+		<action idref="new-item-command" />
+		<empty />
+		<action idref="entity-scenes-command" />
+		<action idref="entity-chapters-command" />
+		<!--
+		<action idref="entity-parts-command" />
+		<action idref="entity-strands-command" />
+		<empty />
+		 -->
+		<action idref="entity-persons-command" />
+		<action idref="entity-persons-links-command" />
+		<!--
+		<action idref="entity-categories-command" />
+		<action idref="entity-genders-command" />
+		<empty />
+		 -->
+		<action idref="entity-locations-command" />
+		<!-- <empty /> -->
+		<action idref="entity-tags-command" />
+		<action idref="entity-taglinks-command" />
+		<action idref="entity-items-command" />
+		<action idref="entity-itemlinks-command" />
+		<empty />
+		<action idref="view-chrono-command" />
+		<action idref="view-book-command" />
+		<action idref="view-manage-command" />
+		<action idref="view-reading-command" />
+		<action idref="view-memoria-command" />
+		<empty />
+		<action idref="part-previous-command" />
+		<action idref="part-next-command" />
+		<empty />
+		<action idref="flashofinspiration-command" />
+		<!--
+		<group id="align">
+			<action idref="align-left-command" />
+			<action idref="align-center-command" />
+			<action idref="align-right-command" />
+		</group>
+		<empty />
+		<action idref="history-command" />
+		 -->
+	</action-list>
+
+</action-set>

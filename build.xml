@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- You may freely edit this file. See commented blocks below for -->
+<!-- some examples of how to customize the build. -->
+<!-- (If you delete it and reopen the project it will be recreated.) -->
+<!-- By default, only the Clean and Build commands use this build script. -->
+<!-- Commands such as Run, Debug, and Test only use this build script if -->
+<!-- the Compile on Save feature is turned off for the project. -->
+<!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
+<!-- in the project's Project Properties dialog box.-->
+<project name="oStorybook" default="default" basedir=".">
+    <description>Builds, tests, and runs the project Storybook.</description>
+    <import file="nbproject/build-impl.xml"/>
+	<property name="sb.version" value="4.10.0" />
+	<property name="sb.distdir" value="${basedir}/distrib" />
+        <property name="sb.distzip" value="${sb.distdir}/oStorybook-${sb.version}.zip" />
+	<property name="sb.file.name" value="oStorybook" />
+	<property name="sb.jar.name" value="${sb.file.name}.jar" />
+	<property name="sb.linux.deployment.dir" value="${basedir}/deployment/linux" />
+        <property name="sb.debian.distdir" value="${sb.distdir}/debian-package" />
+        <property name="sb.debian.deployment.dir" value="${sb.linux.deployment.dir}/debian" />
+        <property name="sb.debian.app" value="${sb.debian.distdir}/usr/share/ostorybook"/>
+	<!-- mac specific build parameters -->
+	<property name="sb.mac.deployment.dir" value="${sb.deployment.dir}/macintosh" />
+	<property name="sb.mac.installer.mount.dir" value="/Volumes/tmpStorybook-${TODAY}" />
+	<property name="sb.mac.installer.template" value="Storybook_template.dmg" />
+	<!-- jarbundler properties -->
+	<property name="jarbundler.name" value="${ant.project.name}" />
+	<property name="jarbundler.shortname" value="${ant.project.name}" />
+	<property name="jarbundler.signature" value="${ant.project.name}, oStorybook.sourceforge.net" />
+	<property name="jarbundler.mainclass" value="storybook.SbApp" />
+	<property name="jarbundler.icon" value="storybook-icon.icns" />
+	<property name="jarbundler.jvmversion" value="1.6+" />
+	<property name="jarbundler.version" value="${sb.version}" />
+	<property name="jarbundler.infostring" value="${ant.project.name} ${sb.version}, ${TODAY}" />
+	<property name="jarbundler.build" value="" />
+	<property name="jarbundler.bundleid" value="storybook.SbApp" />
+	<property name="jarbundler.apple.laf.useScreenMenuBar" value="true" />
+	<property name="jarbundler.apple.awt.brushMetal" value="true" />
+	<property name="jarbundler.apple.awt.showGrowBox" value="true" />
+	<property name="jarbundler.apple.awt.textantialiasing" value="true" />
+    <!--
+
+    There exist several targets which are by default empty and which can be
+    used for execution of your tasks. These targets are usually executed
+    before and after some main targets. They are:
+
+      -pre-init:                 called before initialization of project properties
+      -post-init:                called after initialization of project properties
+      -pre-compile:              called before javac compilation
+      -post-compile:             called after javac compilation
+      -pre-compile-single:       called before javac compilation of single file
+      -post-compile-single:      called after javac compilation of single file
+      -pre-compile-test:         called before javac compilation of JUnit tests
+      -post-compile-test:        called after javac compilation of JUnit tests
+      -pre-compile-test-single:  called before javac compilation of single JUnit test
+      -post-compile-test-single: called after javac compilation of single JUunit test
+      -pre-jar:                  called before JAR building
+      -post-jar:                 called after JAR building
+      -post-clean:               called after cleaning build products
+
+    (Targets beginning with '-' are not intended to be called on their own.)
+
+    Example of inserting an obfuscator after compilation could look like this:
+
+        <target name="-post-compile">
+            <obfuscate>
+                <fileset dir="${build.classes.dir}"/>
+            </obfuscate>
+        </target>
+
+    For list of available properties check the imported
+    nbproject/build-impl.xml file.
+
+
+    Another way to customize the build is by overriding existing main targets.
+    The targets of interest are:
+
+      -init-macrodef-javac:     defines macro for javac compilation
+      -init-macrodef-junit:     defines macro for junit execution
+      -init-macrodef-debug:     defines macro for class debugging
+      -init-macrodef-java:      defines macro for class execution
+      -do-jar-with-manifest:    JAR building (if you are using a manifest)
+      -do-jar-without-manifest: JAR building (if you are not using a manifest)
+      run:                      execution of project
+      -javadoc-build:           Javadoc generation
+      test-report:              JUnit report generation
+
+    An example of overriding the target for project execution could look like this:
+
+        <target name="run" depends="Storybook-impl.jar">
+            <exec dir="bin" executable="launcher.exe">
+                <arg file="${dist.jar}"/>
+            </exec>
+        </target>
+
+    Notice that the overridden target depends on the jar target and not only on
+    the compile target as the regular run target does. Again, for a list of available
+    properties which you can use, check the target you are overriding in the
+    nbproject/build-impl.xml file.
+
+ -->
+        <target name="-post-clean">
+            <!-- <delete dir="${sb.distdir}"/> -->
+        </target>
+        <target name="-post-compile">
+		<copy file="log4j.dtd" todir="${build.classes.dir}" />
+		<copy file="log4j.xml" todir="${build.classes.dir}" />
+		<copy file="actions.xml" todir="${build.classes.dir}" />
+	</target>
+	<!-- Récupération des autres fichiers l'application -->
+	<target name="build-prepare">
+            <echo message="Preparing distributions..." level="info"/>
+            <mkdir dir="${sb.distdir}"/>
+            <mkdir dir="${dist.dir}/dicts" />
+            <copy todir="${dist.dir}/dicts" flatten="false">
+                    <fileset dir="dicts.all/dicts/" />
+            </copy>
+            <mkdir dir="${dist.dir}/lib/languagetool" />
+            <copy todir="${dist.dir}/lib/languagetool" flatten="false">
+                    <fileset dir="languagetool" />
+            </copy>
+            <copy file="ABOUT.txt" todir="${dist.dir}" />
+            <copy file="ABOUT_LANG.txt" todir="${dist.dir}" />
+            <copy file="LICENSE.txt" todir="${dist.dir}" />
+            <copy file="LICENSE-fr.txt" todir="${dist.dir}" />
+            <copy file="THANKS.txt" todir="${dist.dir}" />
+            <copy file="splash.png" todir="${dist.dir}" />
+            <copy file="oStorybook-icon.icns" todir="${dist.dir}" />
+            <copy file="oStorybook-icon.ico" todir="${dist.dir}" />
+            <copy file="oStorybook-icon.png" todir="${dist.dir}" />
+	</target>
+	<target name="build-app-zip" depends="jar, build-prepare" >
+		<mkdir dir="${sb.distdir}" />
+		<zip destfile="${sb.distzip}" basedir="${basedir}/dist" />
+	</target>
+<!-- ========================================================================================= -->
+	<target name="build-jarbundler" depends="jar" >
+            <taskdef name="jarbundler"
+                     classname="net.sourceforge.jarbundler.JarBundler"
+                     classpath="lib/jarbundler-2.2.0.jar" />
+            <jarbundler dir="${sb.distdir}"
+                        name="${jarbundler.name}"
+                        shortname="${jarbundler.shortname}"
+                        signature="${jarbundler.signature}"
+                        mainclass="${jarbundler.mainclass}"
+                        icon="${jarbundler.icon}"
+                        jvmversion="${jarbundler.jvmversion}"
+                        version="${jarbundler.version}"
+                        infostring="${jarbundler.infostring}"
+                        build="${jarbundler.build}"
+                        bundleid="${jarbundler.bundleid}"
+                        workingdirectory="$$APP_PACKAGE/Contents/Resources/Java">
+                    <jarfileset dir="${dist.dir}">
+                            <include name="*.txt" />
+                            <include name="log4j.xml" />
+                            <include name="log4j.dtd" />
+                            <include name="${sb.jar.name}" />
+                            <include name="lib/**" />
+                            <include name="dicts/**" />
+                            <include name="splash.png" />
+                            <include name="oStorybook-icon.icns" />
+                            <include name="oStorybook-icon.ico" />
+                            <include name="oStorybook-icon.png" />
+                    </jarfileset>
+                    <javaproperty name="apple.laf.useScreenMenuBar"
+                                  value="${jarbundler.apple.laf.useScreenMenuBar}" />
+                    <javaproperty name="apple.awt.brushMetal"
+                                  value="${jarbundler.apple.awt.brushMetal}" />
+                    <javaproperty name="apple.awt.showGrowBox"
+                                  value="${jarbundler.apple.awt.showGrowBox}" />
+                    <javaproperty name="apple.awt.textantialiasing"
+                                  value="${jarbundler.apple.awt.textantialiasing}" />
+            </jarbundler>
+	</target>
+<!-- ========================================================================================= -->
+	<target name="build-app-mac" depends="init,jar,build-prepare,build-jarbundler">
+            <property name="sb.macfile" value="${sb.distdir}/oStorybook" />
+            <tar basedir="${sb.distdir}/${jarbundler.name}.app" destfile="${sb.macfile}.tar" />
+            <gzip src="${sb.macfile}.tar" destfile="${sb.macfile}-${sb.version}-macOSx.tar.gz"/>
+            <delete file="${sb.macfile}.tar"/>
+            <delete dir="${sb.distdir}/${jarbundler.name}.app"/>
+        </target> 
+<!-- ========================================================================================= -->
+        <target name="build-app-win" depends="jar, build-prepare">
+            <echo message="BUILDING INSTALLER FOR WINDOWS..." level="info"/>
+            <property name="inst.version" value="${sb.version}"/>
+            <property name="nbdist.dir" value="${sb.distdir}/IzPack"/>
+            <property name="nbdist-app.dir" value="${nbdist.dir}/oStorybook"/>
+            <property name="izpack.dir" value="${basedir}/../../IzPack"/>
+            <property name="izpack2exe.dir" value="${izpack.dir}/utils/wrappers/izpack2exe"/>
+            <property name="izpack.compiler" value="${izpack.dir}/lib/compiler.jar"/>
+            <property name="izpack-installer" value="${nbdist.dir}/install.jar"/>
+            <property name="nbdist-app-installer" value="${sb.distdir}/oStorybook-${sb.version}.exe"/>
+            <property name="izpack.input" value="${nbdist-app.dir}/izpack-install-script.xml"/>
+            <property name="izpack.output" value="${izpack-installer}"/>
+            <property name="izpack.basedir" value="${basedir}/${nbdist-app.dir}"/>
+
+            <taskdef name="izpack" classpath="${izpack.compiler}" classname="com.izforge.izpack.ant.IzPackTask"/>
+
+            <echo message="unzipping ${sb.distzip} into ${nbdist-app.dir} ..." level="info"/>
+            <unzip src="${sb.distzip}" dest="${nbdist-app.dir}"/>
+
+            <echo message="Copying installer/izpack to ${nbdist-app.dir} ..." level="info"/>
+            <copy todir="${nbdist-app.dir}">
+                <fileset dir="deployment/windows/izpack" />
+            </copy>
+            
+            <echo message="Setting variable names..." level="info"/>
+            <replace file="${nbdist-app.dir}/izpack-install-script.xml">
+                <replacefilter token="$APP-NAME" value="oStorybook" />
+                <replacefilter token="$APP-VERSION" value="${sb.version}" />
+                <replacefilter token="$APP-PATH" value="oStorybook-${sb.version}" />
+            </replace>
+            <replace file="${nbdist-app.dir}/shortcutSpec.xml">
+                <replacefilter token="$APP-VERSION" value="${sb.version}" />
+            </replace>
+
+            <echo message="Compiling installer using IzPack..." level="info"/>
+            <izpack input="${izpack.input}"
+                    output="${izpack.output}"
+                    installerType="standard"
+                    basedir="${nbdist.dir}"
+                    izPackDir="${izpack.dir}/"/>
+
+            <echo message="Creating the release ${nbdist-app-installer} ..." level="info"/>
+            <exec dir="${izpack2exe.dir}" executable="python" >
+                <arg value="izpack2exe.py"/>
+                <arg value="--file=${izpack.output}"/>
+                <arg value="--output=${nbdist-app-installer}"/>
+                <arg value="--no-upx"/>
+            </exec>
+
+            <echo message="Cleaning and finalizing release..."  level="info"/>
+            <!-- <delete dir="${nbdist.dir}"/> -->
+            <echo message=" "/>
+            <echo message="Release IzPack of oStorybook for Windows is ready in ${nbdist-app-installer}" level="info"/>
+            <delete dir="${nbdist.dir}"/>
+        </target>
+<!-- ========================================================================================= -->
+        <target name="build-app-debian" depends="jar,build-prepare">
+            <echo level="info">Prepare DEBIAN package build</echo>
+            <echo file="${sb.linux.deployment.dir}/build-debian.sh" append="false" force="true">#!/bin/sh
+echo Création de la préparation pour la version ${sb.version}
+mkdir ${sb.debian.distdir}
+echo Copie debian-package
+cp -R ${sb.debian.deployment.dir}/DEBIAN ${sb.debian.distdir}
+cp -R ${sb.debian.deployment.dir}/usr ${sb.debian.distdir}
+sed -i -e "s/@version@/${sb.version}/g" ${sb.debian.distdir}/DEBIAN/control
+sed -i -e "s/@version@/${sb.version}/g" ${sb.debian.distdir}/usr/share/applications/ostorybook.desktop
+sed -i -e "s/@version@/${sb.version}/g" ${sb.debian.distdir}/usr/share/doc/ostorybook/changelog
+gzip -9 ${sb.debian.distdir}/usr/share/doc/ostorybook/changelog
+echo Copie application
+cp -R ${basedir}/dist/* ${sb.debian.app}
+rm ${sb.debian.distdir}/usr/share/ostorybook/LICENSE.txt
+echo Modification des droits
+chmod -R 644 ${sb.debian.distdir}/usr
+chmod -R 755 ${sb.debian.distdir}/DEBIAN
+chmod -R 755 ${sb.debian.distdir}/usr/bin/ostorybook
+chmod    755 ${sb.debian.distdir}/usr
+chmod    755 ${sb.debian.distdir}/usr/bin
+chmod    755 ${sb.debian.distdir}/usr/share
+chmod    755 ${sb.debian.distdir}/usr/share/applications
+chmod    755 ${sb.debian.distdir}/usr/share/doc
+chmod    755 ${sb.debian.distdir}/usr/share/doc/ostorybook
+chmod    755 ${sb.debian.distdir}/usr/share/icons
+chmod    755 ${sb.debian.distdir}/usr/share/mime
+chmod    755 ${sb.debian.distdir}/usr/share/mime/packages
+chmod    755 ${sb.debian.distdir}/usr/share/ostorybook
+chmod    755 ${sb.debian.distdir}/usr/share/ostorybook/dicts
+chmod    755 ${sb.debian.distdir}/usr/share/ostorybook/lib
+chmod    755 ${sb.debian.distdir}/usr/share/ostorybook/lib/languagetool
+chmod    755 ${sb.debian.distdir}/usr/share/ostorybook/lib/languagetool/resource
+chmod    755 ${sb.debian.distdir}/usr/share/ostorybook/lib/languagetool/resource/ast
+chmod    755 ${sb.debian.distdir}/usr/share/ostorybook/lib/languagetool/resource/be
+chmod    755 ${sb.debian.distdir}/usr/share/ostorybook/lib/languagetool/resource/de
+chmod    755 ${sb.debian.distdir}/usr/share/ostorybook/lib/languagetool/resource/en
+chmod    755 ${sb.debian.distdir}/usr/share/ostorybook/lib/languagetool/resource/fr
+chmod    755 ${sb.debian.distdir}/usr/share/ostorybook/lib/languagetool/rules
+chmod    755 ${sb.debian.distdir}/usr/share/ostorybook/lib/languagetool/rules/be
+chmod    755 ${sb.debian.distdir}/usr/share/ostorybook/lib/languagetool/rules/de
+chmod    755 ${sb.debian.distdir}/usr/share/ostorybook/lib/languagetool/rules/en
+chmod    755 ${sb.debian.distdir}/usr/share/ostorybook/lib/languagetool/rules/fr
+echo Construction du paquet DEBIAN
+dpkg-deb --build ${sb.debian.distdir} ${sb.distdir}/oStorybook-${sb.version}.deb
+echo Nettoyage...
+rm -r -f ${sb.debian.distdir}
+echo Construction du paquet RPM
+cd ${sb.distdir}
+alien -r ${sb.distdir}/oStorybook-${sb.version}.deb</echo>
+            <echo level="info" message="Lancez le script avec la commande: sudo sh ${sb.linux.deployment.dir}/build-debian.sh"/>
+        </target>
+	<target name="build-app-linux" depends="jar,build-prepare" >
+		<mkdir dir="${sb.distdir}" />
+		<exec executable="sh">
+			<arg value="deployment/linux/other/makeself.sh" />
+			<arg value="${basedir}/dist" />
+			<arg value="${sb.distdir}/oStorybook-${sb.version}-linux.bin" />
+			<arg value="oStorybook" />
+			<arg value="./setup.sh" />
+		</exec>
+	</target>
+	<target name="build-lang-all">
+		<zip destfile="${sb.distdir}/language_all.zip">
+			<zipfileset dir="dicts.all" includes="dicts/**" />
+			<zipfileset dir="languagetool.all/" includes="languagetool/**" />
+			<zipfileset dir="." includes="INSTALL_LANG.txt" />
+		</zip>
+	</target>
+        <target name="build-app-all" depends="build-app-linux, build-app-zip, build-app-mac, build-app-debian, build-app-win">
+		<copy file="Versions.txt" todir="${sb.distdir}" />
+        </target>
+</project>

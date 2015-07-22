@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "classpath://org/hibernate/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="storybook.model.hbn.entity">
+  <class discriminator-value="-1" name="AbstractTagLink" table="TAG_LINK">
+    <id column="ID" name="id" type="java.lang.Long" unsaved-value="null">
+      <generator class="increment">
+        <!--
+                  To add non XDoclet generator parameters, create a file named
+                  hibernate-generator-params-AbstractTagLink.xml
+                  containing the additional parameters and place it in your merge dir.
+              -->
+      </generator>
+    </id>
+    <discriminator column="type" type="integer"/>
+    <property column="type" insert="false" name="type" type="java.lang.Integer" update="false"/>
+    <many-to-one cascade="none" class="storybook.model.hbn.entity.Scene" column="start_scene_id" insert="true" lazy="false" name="startScene" outer-join="auto" update="true"/>
+    <many-to-one cascade="none" class="storybook.model.hbn.entity.Scene" column="end_scene_id" insert="true" lazy="false" name="endScene" outer-join="auto" update="true"/>
+    <many-to-one cascade="none" class="storybook.model.hbn.entity.Person" column="character_id" insert="true" lazy="false" name="person" outer-join="auto" update="true"/>
+    <many-to-one cascade="none" class="storybook.model.hbn.entity.Location" column="location_id" insert="true" lazy="false" name="location" outer-join="auto" update="true"/>
+    <subclass discriminator-value="1" name="ItemLink">
+      <many-to-one cascade="none" class="Item" column="tag_id" insert="true" name="item" outer-join="auto" update="true"/>
+    </subclass>
+    <subclass discriminator-value="0" name="TagLink">
+      <many-to-one cascade="none" class="Tag" column="tag_id" insert="true" name="tag" outer-join="auto" update="true"/>
+    </subclass>
+  </class>
+</hibernate-mapping>

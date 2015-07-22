@@ -1,0 +1,12 @@
+Package: ostorybook
+Section: text
+Priority: optional
+Architecture: all
+Description: open Storybook is an open source software for writers, novelists,
+ authors. From the draft to the final book, oStorybook you can never lose
+ sight of the overall story. oStorybook helps you maintain control over the
+ various developments of your story.
+Version: @version@
+Maintainer: favdb <favdb@sourceforge.net>
+Installed-Size: 69000
+Homepage: http://ostorybook.sourceforge.net

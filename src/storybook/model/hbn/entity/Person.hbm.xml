@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "classpath://org/hibernate/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="storybook.model.hbn.entity">
+  <class name="Person" table="PERSON">
+    <id column="ID" name="id" type="java.lang.Long" unsaved-value="null">
+      <generator class="increment">
+            </generator>
+    </id>
+    <many-to-one cascade="none" class="storybook.model.hbn.entity.Gender" column="gender_id" insert="true" lazy="false" name="gender" outer-join="auto" update="true"/>
+    <property column="firstname" insert="true" length="256" name="firstname" type="java.lang.String" update="true"/>
+    <property column="lastname" insert="true" length="256" name="lastname" type="java.lang.String" update="true"/>
+    <property column="abbreviation" insert="true" length="256" name="abbreviation" type="java.lang.String" update="true"/>
+    <property column="birthday" insert="true" name="birthday" type="java.util.Date" update="true"/>
+    <property column="dayofdeath" insert="true" name="dayofdeath" type="java.util.Date" update="true"/>
+    <property column="occupation" insert="true" length="256" name="occupation" type="java.lang.String" update="true"/>
+    <property column="description" insert="true" length="32768" name="description" type="java.lang.String" update="true"/>
+    <property column="color" insert="true" name="color" type="java.lang.Integer" update="true"/>
+    <property column="notes" insert="true" length="32768" name="notes" type="java.lang.String" update="true"/>
+    <many-to-one cascade="none" class="storybook.model.hbn.entity.Category" column="category_id" insert="true" lazy="false" name="category" outer-join="auto" update="true"/>
+    <!--
+		<bag name="attributes" lazy="false" cascade="all" >
+            <key column="id"/>
+            <one-to-many class="storybook.model.hbn.entity.Attribute" />
+        </bag> -->
+    <bag cascade="none" lazy="false" name="attributes" table="person_attribute">
+      <key column="person_id">
+            </key>
+      <many-to-many class="storybook.model.hbn.entity.Attribute" column="attribute_id" outer-join="auto"/>
+    </bag>
+  </class>
+</hibernate-mapping>

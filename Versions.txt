@@ -1,0 +1,92 @@
+oStorybook
+--------------------------------------------------------------------------------
+
+Versions :
+4.10.0 : favdb et Jean Rébillat 01/09/2015
+- lien vers fichier ODT modifiable
+- tri alphabétique des fonctions de recherche des personnages et lieux
+- suppression de la dépendance dans les paquetages deb et rpm
+- ajout du Hongrois comme langue de l'interface utilisateur
+- nouvelle écriture de la fonction Memoria
+4.9.17 : favdb 21/04/2015
+- ajout de la mise en relation entre des personnages
+- ajout de l'export au format XML DocBook
+- correction de la barre inférieur de statistiques
+- ajout du filtre sur les fils dans le tableau des scènes (suggestion 11b)
+- correction du bug concernant l'export de la liste des scènes
+- ajout de notes à l'élément partie
+- ajout d'une fonction d'insertion de caractères spéciaux
+- suppression de traces de l'ancienne version "pro"
+4.9.16 : favdb 01/12/2014
+- mise à jour du panneau d'information sur simple clique de sélection dans l'un
+des tableaux
+- réintégration de la vue des Attributs au même rang que les autres
+- correction du bug concernant la réplication de scène en cas d'ajout dynamique
+personnage, lieu ou fil
+- modification de l'icone, splash, image
+- ajustement de l'I18N pour les menus (mnémoniques)
+- redéveloppement du packaging Debian
+- ajout du packaging RPM
+- internationalisation du "à propos..."
+- ajout des statistiques sur la barre d'état
+- bug : la vue des idées était inactive
+- modification du log4j pour remonter au niveau ERROR
+- lieux triés par pays puis ville puis nom (dans l'arbre, Memoria, etc...)
+4.9.15 : favdb 01/09/2014
+- résolution du bug de l'éditeur par utilisation en mode dialogue
+- transformation du menu et de la barre d'outils au format Netbeans en
+  vue de la suppression du action.xml
+- ajout du téléchargement des outils orthographiques disponibles
+- ajout de la fonction d'appel à LibreOffice/OpenOffice.org
+- ajout de la possibilité de créer de nouveaux Fils, Personnages
+  ou Lieux depuis l'éditeur de scène sans quitter la scène elle-même
+- ajout du panneau de visualisation des Attributs
+- mise en place des distributions Linux, Debian, MacOSX (à tester)
+4.9.14 : favdb 21/04/2014
+- mise à jour des sources du site Web (source séparé)
+- suppression de toutes les références à JasperReport
+- export livre avec mode multi-fichiers HTML
+4.9.13 : favdb 09/03/2014
+- ré-écriture du module d'exportation (suppression future de JasperReport),
+  avec actualisation de la library iText à sa dernière version (5.5.0)
+- amorce du module d'impression
+- remplacement du dialogue de confirmation d'une suppression par un modèle
+  Netbeans (un seul dialogue au lieu du ConfirmDelete et ConfirmMultiDelete)
+- mise en place des éditeurs dédiés, sous Netbeans
+4.9.12 : favdb 31/01/2014
+- nouvel empaquetage pour distributions Linux avec Makeself
+- restauration des fonctions export (avec séparation du code entre
+  TXT et HTML), reintroduction des JasperReports
+- restructuration du HtmlUtil pour uniformisation de l'export HTML
+- préparation en vue de la modification du dialogue pour l'export
+4.9.11  : favdb, 19/01/2014
+- essai pour forcer le panneau editor pour le cas où il apparaît vide
+- correction du action.xml (internationalisation du menu Help)
+- correction du dialogue d'options (fenêtre trop petite),
+  cadrage à gauche et wrap de chaque élément
+- restructuration du code (partie interface utilisateur)
+- introduction de la nouvelle interface utilisateur
+  (non fonctionnelle les actions ne sont pas opérationnelles)
+- ajout du paramètre d'exécution "--newUI" pour assurer la
+  compatibilité 4.x.x et 5.x.x et permettre le test de la nouvelle interface
+4.9.10  : favdb, 16/01/2014
+- petites correction du code
+- ajout des fonctions trace et logErr centralisées
+- quelques traduction pour le fançais
+- adaptation de la détection du changement de version
+- internationalisation du About
+4.9.9   : favdb
+4.0.9   : Martin Mustun, 13/05/2013
+3.1.12  : Martin Mustun
+3.0.0   : Martin Mustun, 13/09/2011
+2.1.17  : Martin Mustun, 19/08/2011
+2.1.15  : Martin Mustun, 20/12/2010
+2.1.12  : Martin Mustun, 02/02/2010
+2.1.11  : Martin Mustun,
+2.1.6   : Martin Mustun, 30/10/2008
+2.0.10  : Martin Mustun, 11/01/2008
+
+Next version:
+4.9.16 : mise à jour de l'internationalisation prévue le 15/09/2014 (selon
+la contribution des traducteurs)
+4.9.17 : évolutions selon le roadmap

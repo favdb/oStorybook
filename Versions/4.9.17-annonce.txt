@@ -1,0 +1,35 @@
+Annonce
+Texte:
+Toulouse, le 05/04/2015
+
+Bonjour,
+
+La publication de la prochaine version 4.9.17 interviendra, sauf difficulté de
+dernière minute, le 21 avril 2015.
+
+J'ai concentré l'essentiel de mon travail sur le mise en place de liens entre
+personnages. Vous disposerez donc d'un nouvel item de menu "Relations"
+("Relationships" en anglais, clé à traduire msg.persons.links dans le fichier
+messages.properties). Une vue en tableau s'ouvre à partir de laquelle on peut
+créer des relations entre personnages. Une relation se compose de :
+- un identifiant numérique (non modifiable, c'est l'identifiant unique dans la
+base)
+- un premier personnage
+- un second personnage à relier
+- une scène de début (facultatif)
+- une scène de fin (facultatif)
+- un type de relation (libellé de texte libre)
+
+Liste des évolutions et corrections:
+- ajout de l'export au format XML DocBook
+- correction de la barre inférieur de statistiques
+- ajout du filtre sur les fils dans le tableau des scènes (suggestion 11b)
+- correction du bug concernant l'export de la liste des scènes
+- ajout du lien relationnel entre personnages
+
+NOTA : l'export Docbook sera complété par la suite de manière à pouvoir 
+disposer en option d'annexes (sur les personnages, les lieux, les objets, ...). 
+Le format Docbook exporté constitue les prémices du prochain format de la base
+de données
+
+Aux traducteurs, merci de bien vouloir traduire ce message.

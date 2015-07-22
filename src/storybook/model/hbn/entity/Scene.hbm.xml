@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "classpath://org/hibernate/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="storybook.model.hbn.entity">
+  <class name="Scene" table="SCENE">
+    <id column="ID" name="id" type="java.lang.Long" unsaved-value="null">
+      <generator class="increment">
+            </generator>
+    </id>
+    <many-to-one cascade="none" class="storybook.model.hbn.entity.Chapter" column="chapter_id" insert="true" lazy="false" name="chapter" outer-join="auto" update="true"/>
+    <many-to-one cascade="none" class="storybook.model.hbn.entity.Strand" column="strand_id" insert="true" lazy="false" name="strand" outer-join="auto" update="true"/>
+    <property column="sceneno" insert="true" name="sceneno" type="java.lang.Integer" update="true"/>
+    <property column="scene_ts" insert="true" name="sceneTs" type="java.sql.Timestamp" update="true"/>
+    <property column="title" insert="true" length="2048" name="title" type="java.lang.String" update="true"/>
+    <property column="summary" insert="true" length="32768" name="summary" type="java.lang.String" update="true"/>
+    <property column="status" insert="true" name="status" type="java.lang.Integer" update="true"/>
+    <property column="relative_date_difference" insert="true" name="relativeDateDifference" type="java.lang.Integer" update="true"/>
+    <property column="relative_scene_id" insert="true" name="relativeSceneId" type="java.lang.Long" update="true"/>
+    <property column="notes" insert="true" length="32768" name="notes" type="java.lang.String" update="true"/>
+    <property column="informative" insert="true" name="informative" type="java.lang.Boolean" update="true"/>
+    <bag cascade="none" lazy="false" name="persons" table="scene_person">
+      <key column="scene_id">
+            </key>
+      <many-to-many class="storybook.model.hbn.entity.Person" column="person_id" outer-join="auto"/>
+    </bag>
+    <bag cascade="none" lazy="false" name="locations" table="scene_location">
+      <key column="scene_id">
+            </key>
+      <many-to-many class="storybook.model.hbn.entity.Location" column="location_id" outer-join="auto"/>
+    </bag>
+    <bag cascade="none" lazy="false" name="strands" table="scene_strand">
+      <key column="scene_id">
+            </key>
+      <many-to-many class="storybook.model.hbn.entity.Strand" column="strand_id" outer-join="auto"/>
+    </bag>
+    <property column="odf" insert="true" length="256" name="odf" type="java.lang.String" update="true"/>
+    <bag cascade="none" lazy="false" name="items" table="scene_item">
+      <key column="scene_id">
+            </key>
+      <many-to-many class="storybook.model.hbn.entity.Item" column="item_id" outer-join="auto"/>
+    </bag>
+  </class>
+</hibernate-mapping>

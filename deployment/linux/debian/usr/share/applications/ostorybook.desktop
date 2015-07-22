@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=4.9.9
+Type=Application
+Terminal=false
+Name=oStorybook
+Icon=/usr/share/ostorybook/oStorybook-icon.png
+Exec=/usr/bin/ostorybook %f
+MimeType=application/vnd.oStorybook
+Categories=Education;TextTools;Java
+OnlyShowIn=GNOME;KDE;Unity
+GenericName=oStorybook
+Comment=Open Source novel writing for Novelists, Authors and Creative Writers.

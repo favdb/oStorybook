@@ -1,0 +1,44 @@
+TODO
+====
+
+1) Mise en forme du texte
+a) Règle générale
+La mise en oeuvre des règles typographiques ne se fait que lors de:
+- l'export du text dans un format PDF ou HTML ou ODT ou RTF
+- l'impression du texte dans le mode de présentation de type "épreuve"
+
+b) Règles Dialogue
+La ligne commence par un double tiret. Si le double tiret est suivi
+par un crochet ouvrant alors ce qui suit est le nom du personnage qui
+parle. Le nom peut soit être l'abréviation soit le prénom soit le nom (mais pas 
+le nom suivi du prénom ou l'inverse) soit l'ID du personnage. Dans le cas du nom 
+ou du prénom, s'il y a des doubles on prend le premier qui se présente dans 
+la base. L'indentité choisie du personnage (ID, prénom, nom) est suivie par un 
+crochet fermant. Exemple:
+--[Jacques] C'est moi Jacques.
+ou
+--[08] C'est moi Jacques.
+
+c) Didascalie
+Si une didascalie constitue un paragraphe à part entière on peut le signaler 
+en commençant la ligne avec un double deux-points. Dans ce cas la totalité du 
+paragraphe sera mis en italique. Ceci est équivalent en HTML à:
+<p><i>Le texte de la didascalie</i></p>
+Ce qui se traduit au format HTML tel que stocké dans la base par:
+<p>::Le texte de la didascalie</p>
+On peut définir une règle typographique particulière pour les paragraphes de
+didascalie, dans ce cas la mise en italique qui est la règle de base est
+remplacée par la règle définie.
+
+d) Règles typographiques
+On doit pouvoir créer autant de règles typographiques que souhaitées. Ces règles 
+sont stockées et utilisées sous forme de CSS. Les règles sont applicables et 
+configurables pour les éléments suivants:
+- titre de partie
+- titre de chapitre
+- titre de scène
+- dialogue
+- didascalie
+- fin de partie
+- fin de chapitre
+- fin de scène

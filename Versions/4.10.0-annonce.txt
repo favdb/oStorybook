@@ -1,0 +1,9 @@
+Annonce
+Texte:
+Toulouse, le 05/04/2015
+
+Nouvelle version 4.10.0
+- lien vers fichier ODT modifiable
+- tri alphabétique des fonctions de recherche des personnages et lieux
+- suppression de la dépendance dans les paquetages deb et rpm
+- ajout du Hongrois comme langue de l'interface utilisateur

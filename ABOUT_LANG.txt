@@ -1,0 +1,20 @@
+How to install other language in oStorybook?
+
+You have downloaded the language package. You unziped it
+somewhere in you disk, in dlLang by exemple. You have to copy the
+directories in the directory you installed oStorybook:
+- dicts in the dicts in the root directory of the application
+- langagetool in the subdirectory of the lib directory
+For all asked questions like "do you want to replace" you must
+asnwer yes.
+That's it.
+
+Français
+Vous avez téléchargé le paquage de langue. Vous l'avez dézipé quelque part sur
+votre disque, dans dlLang par exemple.
+Vous devez copier les répertoires dicts et languetool dans le répertoire
+où vous avez installé Storybook:
+- dicts dans le répertoire dicts du répertoire principal de l'application
+- languagetool dans le sous-répertoire languagetool du répertoire lib
+A toute question du type "voulez-vous remplacer" vous devez répondre oui.
+C'est tout.

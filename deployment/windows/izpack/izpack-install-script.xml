@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : izpack-install-script.xml
+    Created on : 13 mai 2010, 00:01
+    Author     : frederic
+    Description:
+        Purpose of the document follows.
+-->
+
+<installation version="1.0">
+
+    <!--
+        The info section.
+    -->
+    <info>
+        <appname>$APP-NAME</appname>
+        <appversion>$APP-VERSION</appversion>
+        <url>http://ostorybook.sourceforge.net</url>
+        <uninstaller>yes</uninstaller>
+        <javaversion>1.7</javaversion>
+    </info>
+
+
+    <variables>
+        <variable name="ShowCreateDirectoryMessage" value="false"/>
+        <variable name="DesktopShortcutCheckboxEnabled" value="true" />
+    </variables>
+
+
+    <!--
+        The gui preferences indication.
+        Sets the installer window to 640x480. It will not be able to change the size.
+    -->
+    <guiprefs width="640" height="480" resizable="no">
+        <modifier key="useFlags" value="yes"/>
+        <modifier key="langDisplayType" value="native"/>
+        <modifier key="useButtonIcons" value="yes"/>
+        <modifier key="useLabelIcons" value="yes"/>
+        <modifier key="allYGap" value="3"/>
+        <modifier key="layoutAnchor" value="CENTER"/>
+        <modifier key="useHeadingPanel" value="yes"/>
+        <modifier key="headingLineCount" value="1"/>
+        <modifier key="headingFontSize" value="1.5"/>
+        <modifier key="headingBackgroundColor" value="0x00ffffff"/>
+        <modifier key="headingPanelCounter" value="text"/>
+        <modifier key="headingPanelCounterPos" value="inHeading"/>
+    </guiprefs>
+
+    <!--
+        The locale section.
+        Asks here to include the English and French langpacks.
+    -->
+    <locale>
+        <langpack iso3="eng"/>
+        <langpack iso3="fra"/>
+    </locale>
+
+    <!--
+        The resources section.
+        The ids must be these ones if you want to use the LicencePanel and/or the InfoPanel.
+    -->
+    <resources>
+        <res id="shortcutSpec.xml" src="oStorybook/shortcutSpec.xml"/>
+    </resources>
+
+    <!-- The native libraries to add -->
+    <native type="izpack" name="ShellLink.dll"/>
+
+    <!--
+        The panels section.
+        We indicate here which panels we want to use. The order will be respected.
+    -->
+    <panels>
+        <panel classname="HelloPanel"/>
+        <panel classname="TargetPanel"/>
+        <panel classname="InstallPanel"/>
+        <panel classname="ShortcutPanel"/>
+        <panel classname="SimpleFinishPanel"/>
+    </panels>
+
+    <!--
+        The packs section.
+        We specify here our packs.
+    -->
+    <packs>
+        <pack name="$APP-NAME" required="yes">
+            <description>Application Files</description>
+            <file targetdir="$INSTALL_PATH" src="oStorybook" override="true" />
+            <file targetdir="$INSTALL_PATH" src="oStorybook/oStorybook.ico" override="true" />
+            <file targetdir="$INSTALL_PATH/Uninstaller" src="oStorybook/uninstaller.jar" override="true" />
+            <executable targetfile="$INSTALL_PATH/oStorybook" stage="never"/>
+        </pack>
+    </packs>
+</installation>

@@ -1,0 +1,29 @@
+Annonce de publication
+Texte:
+Toulouse, le 21/04/2015
+
+Bonjour,
+
+La version 4.9.17 est maintenant disponible.
+
+L'évolution la plus importante concerne la mise à disposition d'une fonction de
+liens entre personnages. Vous disposez donc d'un nouvel item de menu
+"Relations" ("Relationships" en anglais, clé à traduire msg.relationship, et 
+suivantes dans le fichier messages.properties).
+
+Liste des évolutions et corrections:
+- ajout de la mise en relation entre des personnages
+- ajout de l'export au format XML DocBook
+- correction de la barre inférieur de statistiques
+- ajout du filtre sur les fils dans le tableau des scènes (suggestion 11b)
+- correction du bug concernant l'export de la liste des scènes
+- ajout de notes à l'élément partie
+- ajout d'une fonction d'insertion de caractères spéciaux
+- suppression de traces de l'ancienne version "pro"
+
+RAPPEL : l'export Docbook sera complété par la suite de manière à pouvoir 
+disposer en option d'annexes (sur les personnages, les lieux, les objets, ...). 
+Le format Docbook exporté constitue les prémices du prochain format de la base
+de données.
+
+Aux traducteurs, merci de bien vouloir traduire ce message.

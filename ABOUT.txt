@@ -1,0 +1,64 @@
+How to install?
+===============
+
+NOTE : this package is only for english and french users. For an other language
+you have to complete your install with Language-all.
+
+Linux
+-----
+Execute this command: (sudo) sh oStorybook....bin
+
+Linux Debian
+------------
+Load the package oStorybook...deb
+
+Windows
+-------
+Simply start the installer oStorybook...exe
+
+Mac OS X
+--------
+Load the software with your usual setup tool.
+
+Français
+--------
+
+Note : ce logiciel n'est qu'un Français et en Anglais. Pour une autre langue
+vous devez installer le complément Language-all.
+
+Linux
+-----
+Executez la commande : (sudo) sh oStorybook....bin
+
+Linux Debian
+------------
+Chargez le paquage oStorybook....deb
+
+Windows
+-------
+Lancez l'exécution de l'installeur oStorybook....exe
+
+Mac OS x
+--------
+Utilsez votre outil d'installation habituel avec oStorybook....tgz
+
+How to install other language in oStorybook?
+===========================================
+
+English
+-------
+You have downloaded the language package. You unziped it
+somewhere in you disk, in dlLang by exemple. You have to copy the files
+*.ortho in the directory dicts where you installed oStorybook. Then
+copy the directories resource in the directory languagetool/resource, and
+the directory rules in the directory languagetool/rules.
+That's it.
+
+Français
+--------
+Vous avez téléchargé le paquage de langue. Vous l'avez dézipé quelque part sur
+votre disque, dans dlLang par exemple.
+Vous devez copier les fichiers *.ortho dans le répertoire dicts là
+où vous avez installé oStorybook. Puis copiez le contenu du répertoire
+resource dans le répertoire languagetool/resource, et le répertoire
+rules dans le répertoire languagetool/rules.

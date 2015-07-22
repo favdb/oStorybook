@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : shortcutSpec.xml.xml
+    Created on : 13 mai 2010, 00:33
+    Author     : frederic
+    Description:
+        Purpose of the document follows.
+-->
+
+<shortcuts>
+
+  <skipIfNotSupported />
+
+  <programGroup defaultName="oStorybook $APP-VERSION" location="applications"/>
+
+  <shortcut
+     name="oStorybook $APP-VERSION"
+     programGroup="no"
+     desktop="yes"
+     applications="no"
+     startMenu="no"
+     startup="no"
+     target="$INSTALL_PATH\ostorybook.exe"
+     workingDirectory="$INSTALL_PATH"
+     commandLine=""
+     description="The oStorybook application"
+     iconFile="$INSTALL_PATH\oStorybook.ico"
+     iconIndex="0"
+     initialState="noShow">
+   </shortcut>
+
+   <shortcut
+     name="oStorybook Uninstaller"
+     programGroup="no"
+     desktop="no"
+     applications="no"
+     startMenu="no"
+     startup="no"
+     target="$INSTALL_PATH\Uninstaller\uninstaller.jar"
+     workingDirectory="$INSTALL_PATH"
+     commandLine=""
+     iconFile="%SystemRoot%\system32\SHELL32.dll"
+     iconIndex="31"
+     description="This uninstalls oStorybook">
+   </shortcut>
+
+</shortcuts>

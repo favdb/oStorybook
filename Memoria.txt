@@ -1,0 +1,24 @@
+Nouvelles possibilités
+
+Introduction à partir de la version 4.10.0
+
+Il est possible de ne pas sélectionner une date de référence lorsque le type
+d'élément et un Lieu, un personnage, un objet ou une étiquette. Attention
+toutefois, dans ce cas le rendu risque d'être un peu "fouilli" en raison du
+grand nombre de liens qui seront visualisés.
+
+Les objets et les étiquettes sont distingués. Jusqu'à cette version les objets
+et étiquettes étaient confondus.
+
+Les relations entre une scène et un objet peuvent être  indiqués indifféremment,
+y compris simultanément, soit via l'affectation dans l'éditeur de scène, soit
+via l'affection d'objet.
+
+L'affection d'objet, ou d'étiquette, permet maintenant de cumuler différents
+éléments. Par exemple pour un objet, indication d'un personnage et/ou un lieu 
+et/ou une scène de début avec éventuellement une scène de fin. Remarque: dans
+le cas de l'utilisation d'une scène de début et de fin, il est nécessaire que
+les scènes concernées s'enchainent via leurs dates. Pour l'écriture d'une pièce
+de théâtre dans laquelle on respecte scrupuleusement l'unité de temps, il n'est
+pas naturel de dater les scènes, il sera donc inutile de chercher à indiquer les
+scènes de début et de fin.

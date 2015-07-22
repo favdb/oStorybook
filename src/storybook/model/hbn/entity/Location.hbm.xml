@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "classpath://org/hibernate/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="storybook.model.hbn.entity">
+  <class name="Location" table="LOCATION">
+    <id column="ID" name="id" type="java.lang.Long" unsaved-value="null">
+      <generator class="increment">
+        <!--
+                  To add non XDoclet generator parameters, create a file named
+                  hibernate-generator-params-Location.xml
+                  containing the additional parameters and place it in your merge dir.
+              -->
+      </generator>
+    </id>
+    <property column="name" insert="true" length="256" name="name" type="java.lang.String" update="true"/>
+    <property column="address" insert="true" length="256" name="address" type="java.lang.String" update="true"/>
+    <property column="city" insert="true" length="256" name="city" type="java.lang.String" update="true"/>
+    <property column="country" insert="true" length="256" name="country" type="java.lang.String" update="true"/>
+    <property column="altitude" insert="true" name="altitude" type="java.lang.Integer" update="true"/>
+    <property column="description" insert="true" length="32768" name="description" type="java.lang.String" update="true"/>
+    <property column="notes" insert="true" length="32768" name="notes" type="java.lang.String" update="true"/>
+    <many-to-one cascade="none" class="storybook.model.hbn.entity.Location" column="location_id" insert="true" lazy="false" name="site" outer-join="auto" update="true"/>
+    
+    <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-Location.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+  </class>
+</hibernate-mapping>

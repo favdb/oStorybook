@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "classpath://org/hibernate/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="storybook.model.hbn.entity">
+  <class name="Internal" table="INTERNAL">
+    <id column="ID" name="id" type="java.lang.Long" unsaved-value="null">
+      <generator class="increment">
+        <!--
+                  To add non XDoclet generator parameters, create a file named
+                  hibernate-generator-params-Internal.xml
+                  containing the additional parameters and place it in your merge dir.
+              -->
+      </generator>
+    </id>
+    <property column="key" insert="true" length="512" name="key" type="java.lang.String" update="true"/>
+    <property column="string_value" insert="true" length="4096" name="stringValue" type="java.lang.String" update="true"/>
+    <property column="integer_value" insert="true" name="integerValue" type="java.lang.Integer" update="true"/>
+    <property column="boolean_value" insert="true" name="booleanValue" type="java.lang.Boolean" update="true"/>
+    <property column="binValue" insert="true" length="16384" name="binValue" type="binary" update="true"/>
+  </class>
+</hibernate-mapping>
