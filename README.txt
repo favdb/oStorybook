@@ -15,4 +15,4 @@ Windows users : oStorybook-X.Y.Z.exe
 ===================================================================
 
 More information about oStorybook can be found on:
-http://ostorybook.sourceforge.net
+http://ostorybook.tuxfamily.org/
